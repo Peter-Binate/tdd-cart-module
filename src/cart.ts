@@ -34,3 +34,7 @@ export const addProduct = (product: Product): void => {
 export const removeProduct = (productId: string): void => {
   cartState.products = cartState.products.filter(product => product.id !== productId);
 }
+
+export const getProductCount = (): number => {
+  return cartState.products.reduce((total, product) => total + product.quantity, 0);
+}
