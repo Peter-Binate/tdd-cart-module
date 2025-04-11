@@ -22,5 +22,11 @@ export const getProducts = (): Product[] => {
 }
 
 export const addProduct = (product: Product): void => {
-  cartState.products.push({ ...product })
+  const existingproductIndex = cartState.products.findIndex(p => p.id === product.id);
+
+  if (existingproductIndex !== -1){
+    cartState.products[existingproductIndex].quantity += product.quantity
+  } else{
+    cartState.products.push({ ...product })
+  }
 }
