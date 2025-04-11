@@ -30,3 +30,7 @@ export const addProduct = (product: Product): void => {
     cartState.products.push({ ...product })
   }
 }
+
+export const removeProduct = (productId: string): void => {
+  cartState.products = cartState.products.filter(product => product.id !== productId);
+}
